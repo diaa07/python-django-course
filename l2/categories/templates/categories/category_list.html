@@ -1,0 +1,20 @@
+<h1>show all categories</h1>
+
+<ul>
+  {% for category in categories %}
+  <li>
+    {{category}}
+    <ul>
+      {% for task in category.tasks.all %}
+      <li>{{task.title}}</li>
+      {% empty %}
+      <h3>no tasks</h3>
+      {% endfor %}
+    </ul>
+    {% empty %}
+    <h3>no categories!</h3>
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'tasks:tasks_list' %}">go home</a>

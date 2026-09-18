@@ -1,0 +1,11 @@
+<h1>my tasks</h1>
+
+<ul>
+  {% for task in tasks %}
+  <li>{{task}}</li>
+  {% empty %}
+  <h3>no tasks found!</h3>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'categories:categories' %}"">show cats</a>
