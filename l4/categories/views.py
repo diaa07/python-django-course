@@ -8,13 +8,13 @@ from .forms import CategoryForm
 
 
 def category_list(request):
-    categories = Category.objects.annotate(tasks_count=Count('task_set'))
+    categories = Category.objects.annotate(tasks_count=Count('tasks'))
     return render(request, 'categories/category_list.html', {'categories': categories})
 
 
 def category_details(request, pk):
     category = get_object_or_404(Category.objects.annotate(
-        tasks_count=Count('task_set')), pk=pk)
+        tasks_count=Count('tasks')), pk=pk)
     return render(request, 'categories/category_details.html', {'category': category})
 
 

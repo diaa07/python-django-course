@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Task Manager App {% endblock %}</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 860px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      nav {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+      a {
+        color: #2457c5;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .field {
+        margin-bottom: 16px;
+      }
+      .field label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .field small {
+        display: block;
+        color: #666;
+        margin-top: 2px;
+      }
+      .field ul.errorlist {
+        color: #b00020;
+        list-style: none;
+        padding: 0;
+        margin: 4px 0 0;
+        font-size: 0.9em;
+      }
+      input.input,
+      select.input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        width: 100%;
+        max-width: 320px;
+      }
+      button[type="submit"] {
+        background: #2457c5;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-right: 8px;
+      }
+      button[type="submit"]:hover {
+        background: #1c469c;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      li a {
+        margin-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="{% url 'tasks:task_list' %}">Tasks</a>
+      <a href="{% url 'categories:category_list' %}">Categories</a>
+      <a href="/admin/">Admin panel</a>
+    </nav>
+    {% block content %}{% endblock %}
+  </body>
+</html>
