@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Delete{{ category }}{% endblock %}
+{% block content %}
+    <div class="card">
+        <h1>Delete {{ category }}?</h1>
+        <p>
+            This Can't be undone!
+            <br />
+            <strong>Deleting a category will also delete all of it's tasks!!</strong>
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Yes, Delete it!</button>
+            <a href="{% url 'categories:category_details' category.pk %}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

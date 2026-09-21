@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ task.title }}{% endblock %}
+{% block content %}
+  <div class="card">
+    <h1>{{ task }}</h1>
+    <p>Status: <strong>{{ task.done|yesno:"Done,Pending" }}</strong></p>
+    <p>
+      Category:
+      <a href="{% url 'categories:category_details' task.category.pk %}">{{ task.category }}</a>
+    </p>
+    <p>
+      <a href="{% url 'tasks:task_edit' task.pk %}">Edit</a>
+      <a href="{% url 'tasks:task_delete' task.pk %}">Delete</a>
+    </p>
+    <p><a href="{% url 'tasks:task_list' %}">← Back to all tasks</a></p>
+  </div>
+{% endblock %}

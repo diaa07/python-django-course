@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+    <div class="card">
+        <h1>{{ category }}</h1>
+        <p>Task count: {{ category.tasks_count }}</p>
+        <p>
+            <a href="{% url 'categories:category_edit' category.pk %}">Edit</a>
+            <a href="{% url 'categories:category_delete' category.pk %}">Delete</a>
+        </p>
+        <p>
+            <a href="{% url 'categories:category_list' %}">← Back to all categories</a>
+        </p>
+    </div>
+{% endblock %}

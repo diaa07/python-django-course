@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    {% if form.instance.pk %} Edit category
+    {% else %} Create category
+    {% endif %}
+{% endblock %}
+{% block content %}
+    <div class="card">
+        <h1>
+            {% if form.instance.pk %} Edit category
+            {% else %} Create category
+            {% endif %}
+        </h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="field">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                {{ form.name.errors }}
+            </div>
+            <button type="submit">Save</button>
+            {% if category %}
+                <a href="{% url 'categories:category_detail' category.pk %}">Cancel</a>
+            {% else %}
+                <a href="{% url 'categories:category_list' %}">Cancel</a>
+            {% endif %}
+        </form>
+    </div>
+{% endblock %}

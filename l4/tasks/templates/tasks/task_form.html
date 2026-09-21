@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+  {% if form.instance.pk %} Edit task
+  {% else %} Create new task
+  {% endif %}
+{% endblock %}
+{% block content %}
+  <div class="card">
+    <h1>
+      {% if form.instance.pk %} Edit task
+      {% else %} Create task
+      {% endif %}
+    </h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="field">
+        {{ form.title.label_tag }}
+        {{ form.title }}
+        {% if form.title.help_text %}
+          <small>{{ form.title.help_text }}</small>
+        {% endif %}
+        {{ form.title.errors }}
+      </div>
+      <div class="field">{{ form.done.label_tag }}{{ form.done }}{{ form.done.errors }}</div>
+      <div class="field">{{ form.category.label_tag }}{{ form.category }} {{ form.category.errors }}</div>
+      <button type="submit">Save</button>
+      {% if form.instance.pk %}
+        <a href="{% url 'tasks:task_details' form.instance.pk %}">Cancel</a>
+      {% else %}
+        <a href="{% url 'tasks:task_list' %}">Cancel</a>
+      {% endif %}
+    </form>
+  </div>
+{% endblock %}
