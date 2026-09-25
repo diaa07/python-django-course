@@ -1,4 +1,48 @@
+# Python / Byte-compiled files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+venv/
 .venv/
-db.sqlite3
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Database (تجاهل قاعدة البيانات المحلية)
+*.sqlite3
+*.db
+*.sqlite3-journal
+
+# Django specifics
+local_settings.py
+*.log
+media/
+staticfiles/
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# IDEs & Editors (Cursor / VS Code / PyCharm / Vim)
+.vscode/
+.cursor/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/

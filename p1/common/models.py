@@ -13,7 +13,8 @@ class TimeStampedModel(models.Model):
 
 
 class SluggedModel (models.Model):
-    slug = models.SlugField(max_length=255, unique=True, blank=True)
+    slug = models.SlugField(max_length=255, unique=True,
+                            blank=True, editable=False)
     slug_source = "name"
 
     class Meta:
